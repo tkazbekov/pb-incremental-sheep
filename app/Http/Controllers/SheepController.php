@@ -14,7 +14,7 @@ class SheepController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
+    {   
         $result = Sheep::pen($request->pen_id)->get();
         return new SheepsResource($result);
     }
@@ -42,7 +42,6 @@ class SheepController extends Controller
     public function show(Sheep $sheep)
     {
         SheepResource::withoutWrapping();
-
         return new SheepResource($sheep);
     }
 
@@ -60,10 +59,10 @@ class SheepController extends Controller
      */
     public function destroy($id)
     {
-                if ($id == 'all')
-                    Sheep::truncate();
-                else 
-                    Sheep::findOrFail($id)->delete();
-                return response()->json(null, 204);
+      if ($id == 'all')
+        Sheep::truncate();
+      else 
+        Sheep::findOrFail($id)->delete();
+      return new SheepsResource(Sheep::all());
     }
 }

@@ -25,10 +25,13 @@ class PenController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $pen = new Pen;
-        $pen->save();
-        return new PenResource($pen);
+    {   
+        $iterations = $request->create_amount;
+        for ($n = 1; $n <= $iterations; $n++) {
+          $pen = new Pen;
+          $pen->save();
+        }        
+        return new PensResource(Pen::all());
     }
 
     /**

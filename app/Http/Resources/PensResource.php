@@ -15,8 +15,7 @@ class PensResource extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'type' => 'pens',
-            'total_hits' => count($this->collection),
+            'total_pens' => count($this->collection),
             'data' => PenResource::collection($this->collection)
         ];
     }

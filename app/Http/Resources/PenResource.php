@@ -15,9 +15,8 @@ class PenResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'type'          => 'pen',
             'id'            => (string)$this->id,
-            'sheeps'        => new SheepsResource($this->sheeps)
+            'sheeps'        => count($this->sheeps)
         ];
     }
 }

@@ -15,8 +15,7 @@ class SheepsResource extends ResourceCollection
     public function toArray($request)
     {
         return [
-            'type' => 'sheeps',
-            'total_hits' => count($this->collection),
+            'total_sheeps' => count($this->collection),
             'data' => SheepResource::collection($this->collection)
         ];
     }

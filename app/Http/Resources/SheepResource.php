@@ -15,7 +15,6 @@ class SheepResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'type'          => 'sheep',
             'id'            => (string)$this->id,
             'pen_id'        => (string)$this->pen_id,
         ];
